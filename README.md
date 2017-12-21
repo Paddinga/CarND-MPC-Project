@@ -9,6 +9,7 @@ The goal for this project was to implement a MPC to drive a car in the SDC simul
 The concept of a Model Predictive Controller is to use the odometry of the car and a set of waypoints along a track to be driven. This data is provided by the SDC simulator and handed to the MPC running through the following model to predict the trajectory the car needs to drive to drive along the waypoints. The calculated values for steering and throttle are handed back to the simulator. This process is repeated with the next set of data provided by the simulator. In the code the delay of 100ms is also taken acoount of.
 
 1. Predict odometry for a delay (dt) of 100ms
+
 The vehicle state is forecasted calculating the future position px and py and the direction of the car considering the steering angle (delta). Also the future speed is calculated considering the current throttle (a) with a empirical correction factor of 10 due to missing information about the actual acceleration. The current values for the steering angle and throttle are also handed by the SDC simulator alongside the odometry data.
 ```px = px + v * cos(psi) * dt;
 py = py + v * sin(psi) * dt;
@@ -25,6 +26,7 @@ ptsy[i] = dx * sin(-psi) + dy * cos(-psi);
 ```
 
 3. Fitting polynomial and calculation state
+
 A 3rd order polynomial is generated along the waypoints. Additionally the cross track error (CTE) and the orientation (epsi) are calculated. The vehicle speed from 1., the cte and the epsi are combined to the vehicle speed.
 
 4.
