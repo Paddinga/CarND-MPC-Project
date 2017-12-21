@@ -34,7 +34,7 @@ A 3rd order polynomial is generated along the waypoints. Additionally the cross 
 
 The MPC is initialized with a horizon of 10 steps and a interim time of 100ms. So the prediction horizon of the MPC T is set so 1 second.
 
-To take account of several influences to the overall cost function the parts of the cost function are defined. The main directive for the MPC is to follow the handed trajectory. Therefore the cost for the CTE and the EPSI are considered with the power of 6 and a factor of 100. The target speed ref_v is set to 50 mph, but since I actually don't care much the vehicle will accerelate and drive as fast as possible (max speed around 100 mph) and the cost for the speed is not a big part of the overall cost function with a factor of 1. To get the car driving quite smoothly I decided to give the use a factor of 1000 for usage of steering and the gap between to sequential steering angles.
+To take account of several influences to the overall cost function the parts of the cost function are defined. The main directive for the MPC is to follow the handed trajectory. Therefore the cost for the CTE and the EPSI are considered with the power of 6 and a factor of 100. The target speed ref_v is set to 40 mph, but since I actually don't care much the vehicle will accerelate and drive as fast as possible (max speed around 85 mph) and the cost for the speed is not a big part of the overall cost function with a factor of 1. To get the car driving quite smoothly I decided to give the use a factor of 1000 for usage of steering and the gap between to sequential steering angles.
 ```
 / Cost funtion
 // The part of the cost based on the reference state.

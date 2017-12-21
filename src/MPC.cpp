@@ -33,7 +33,7 @@ size_t a_start = delta_start + N - 1;
 // Set the reference values
 double ref_cte = 0;
 double ref_epsi = 0;
-double ref_v = 50;
+double ref_v = 40;
 
 
 class FG_eval {
